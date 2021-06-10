@@ -1,0 +1,200 @@
+::ng-deep body
+{
+    /* background-image: url('../assets/background.jpg'); */
+    background-color: black;
+    background-blend-mode: lighten;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Sitka Text';
+    color:aliceblue;
+    overflow: hidden;
+}
+
+#title
+{
+    /* border: groove; */
+    text-align: center;
+    font-size: 1.4em;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+#section
+{
+    margin-top: 12%;
+    margin-left: 2%;
+    
+}
+/* #left
+{
+    background: #6b6b6e ;
+    border-color: #6b6b6e;
+    text-align: center;
+    border-radius: 25px;
+} */
+
+#brain
+{
+    margin-left:50%;
+}
+
+/* Button styles */
+a{
+    position: relative;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #2196f3;
+    /* color: lightblue; */
+    font-size: 25px;
+    padding: 15px 30px;
+    overflow: hidden;
+    transition: 0.2s;
+    text-decoration: none;
+}
+
+/* background: #2196f3;*/
+a:hover{
+    color: #255784;
+    /* color: blue; */
+    background: #2196f3;
+    box-shadow: 0 0 10px #2196f3, 0 0 40px #2196f3, 0 0 80px #2196f3;
+    transition-delay: 1s;
+
+}
+
+a span{
+    position: absolute;
+    display: block;
+}
+a span:nth-child(1){
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg,transparent,#2196f3);
+}
+
+a:hover span:nth-child(1){
+    left: 100%;
+    transition: 1s;
+}
+
+a span:nth-child(3){
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg,transparent,#2196f3);
+}
+
+a:hover span:nth-child(3){
+    right: 100%;
+    transition: 1s;
+    transition-delay: 0.5s;
+}
+
+a span:nth-child(2){
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg,transparent,#2196f3);
+}
+
+a:hover span:nth-child(2){
+    top: 100%;
+    transition: 1s;
+    transition-delay: 0.25s;
+}
+
+a span:nth-child(4){
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg,transparent,#2196f3);
+}
+
+a:hover span:nth-child(4){
+    bottom: 100%;
+    transition: 1s;
+    transition-delay: 0.75s;
+}
+
+
+/* Card Design  */
+
+#left{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 20vh;
+    background: #060c21;
+}
+
+.box{
+    position: relative;
+    width: 300px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #060c21;
+
+}
+
+.box:before{
+    content: '';
+    position: absolute;
+    top: -25px;
+    left: -25px;
+    right: -25px;
+    bottom: -25px;
+    background: #fff;
+    z-index: -1;
+}
+
+.box:after{
+    content: '';
+    position: absolute;
+    top: -25px;
+    left: -25px;
+    right: -25px;
+    bottom: -25px;
+    background: #fff;
+    z-index: -2;
+    filter: blur(30px);
+}
+
+.box:before,
+.box:after{
+    background: linear-gradient(235deg,#89ff00,#060c21,#00bcd4);
+}
+
+.content{
+    padding: 20px;
+    box-sizing: border-box;
+    color: #fff;
+}
+
+/* Heading Glow */
+.glow {
+    font-size: 45px;
+    color: #fff;
+    text-align: center;
+    animation: glow 1s ease-in-out infinite alternate;
+  }
+  
+  @keyframes glow {
+    from {
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #255784, 0 0 40px #255784, 0 0 50px #255784, 0 0 60px #255784, 0 0 70px #255784;
+    }
+    
+    to {
+      text-shadow: 0 0 20px #fff, 0 0 30px #2196f3, 0 0 40px #2196f3, 0 0 50px #2196f3, 0 0 60px #2196f3, 0 0 70px #2196f3, 0 0 80px #2196f3;
+    }
+  }
+  

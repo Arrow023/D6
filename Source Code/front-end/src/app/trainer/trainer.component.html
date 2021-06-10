@@ -1,0 +1,112 @@
+<nav class="navbar navbar-expand-lg navbar-dark " >
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="trainer">Train</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="resources">Resources</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="plots">Results</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<hr style='background-color:aliceblue; margin-top: 1px;'>
+<div class='container-fluid'>
+    <div class='row'>
+        <form class='col-md-6 mt-2 ml-3' id='forms' (submit)='trainModel(iters.value,eps.value)'>
+            <div class='col-md-12'>
+                <h3 class="text-center">Try out New</h3>
+            </div>
+            <div class="mb-3 mt-1">
+              <label for="iterations" class="form-label">No. Of Iterations</label>
+              <input type="number" class="form-control" id="iterations" placeholder="No. of Iterations" min=10 aria-describedby="iterations" #iters required> 
+            </div>
+            <div class="mb-4">
+              <label for="epochs" class="form-label">No. of Epochs</label>
+              <input type="number" class="form-control" placeholder="No. of Epochs" min=1 id="epochs" #eps required>
+            </div>
+            <div class="mb-3">
+                <label for="classification" class="form-label col-md-4">Select Classification Scheme</label>
+                <select class="form-select col-md-6 offset-1" id='classification'>
+                    <option selected>Select Classification Algorithm</option>
+                    <option value="SVM">Support Vector Machine</option>
+                    <option value="XGBoost">XG-Boost Classifier</option>
+                    <option value="EfficientNet">Efficient Net Model</option>
+                </select>
+            </div>
+            <div class='col-md-12 text-center'>
+                <button type="submit" class="btn btn-outline-danger mb-2 col-md-4" >Let's Try</button>
+            </div>
+            <div class='col-md-12 text-center'>
+                <a href='plots'><p>Not sure, about this ? See our previous results</p></a>
+            </div>
+        </form>
+        <div class='col-md-5 mt-2 ml-5' id='charts'>
+            <h3 class='col-md-12 text-center mt-2'>Server Status <span class="badge rounded-pill bg-success">Connected <i class='fa fa-1x fa-signal'></i></span></h3> 
+            <div id="chart_div" class='offset-1 col-md-10 mx-auto p-2'>
+            </div>
+            <span class='col-md-6' id='status'>
+                <table class="mx-auto">
+                    <tr>
+                        <td>RAM Status : </td>
+                        <td id='ram'></td>
+                    </tr>
+                    <tr>
+                        <td>CPU Status : </td>
+                        <td id='cpu'></td>
+                    </tr>
+                    <tr>
+                        <td>Network Status : </td>
+                        <td id='network'></td>
+                    </tr>
+                </table>
+            </span>
+        </div>
+    </div>
+    <div class='row mt-3 ml-1 mr-5' id='explore'>
+        <div class='col-md-1 my-auto'>
+            <img src="https://img.icons8.com/cotton/128/000000/brain-3.png" class='img-fluid'/>
+        </div>
+        <div class='col-md-11'>
+            <h5>Explore More !</h5>
+            <p>This project is an application of the cutting edge-technology present in the world.
+                It is an application of Artificial Intelligence. It can recreate the scenarios that you've seen.
+                By using the specialized modern Machine Learning algorithms. Our aim is to make this technology more
+                efficient in such a way that it could be cost-effective and easily acessible. Keeping this in mind, 
+                we have attached our ML model using a modern WebStack (Angular + Python Flask) to make it easily accessible.
+            </p>
+        </div>
+
+        
+    </div>
+</div>
+
+<app-footer></app-footer>
+
+<!-- Modal -->
+<div class="modal fade" data-backdrop="static" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content text-primary">
+        <div class="modal-header">
+            <h5 class="modal-title" >Model Training has been Started</h5>
+        </div>
+        <div class="modal-body text-center">
+            <div class="spinner-grow" style="width: 5rem; height: 5rem;" role="status">
+                <span class="sr-only">Loading...</span>
+                </div>
+                <p>Estimated time : {{remaining}} sec </p>
+            </div>
+        </div>
+    </div>
+</div>

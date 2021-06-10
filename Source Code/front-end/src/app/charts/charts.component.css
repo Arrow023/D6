@@ -1,0 +1,51 @@
+::ng-deep body
+{
+    background-color: black;
+    background-blend-mode: lighten;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Sitka Text';
+    color:aliceblue;
+    overflow-y: scroll;
+    
+}
+
+nav
+{
+    background-color: black;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.nav-item
+{
+    margin-right: 15px;
+   
+}
+.nav-item :hover
+{
+    background-color: #181818;   
+}
+
+.border-primary
+{
+    border:solid;
+    border-color: aliceblue;
+    border-width: 1px;
+    padding:10px;
+}
+.col-md-4
+{
+    margin-bottom: 2%; 
+}
+
+.outline :hover
+{
+    box-shadow:  0 4px 8px 0 white, 0 6px 20px 0 white;
+}
+
+.classifier, .classifier>.col-md-3
+{
+    border: 1px solid white;
+}

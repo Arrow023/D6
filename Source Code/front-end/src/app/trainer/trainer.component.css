@@ -1,0 +1,43 @@
+::ng-deep body
+{
+    background-color: black;
+    background-blend-mode: lighten;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Sitka Text';
+    color:aliceblue;
+    overflow-y: scroll;
+    
+}
+
+nav
+{
+    background-color: black;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.nav-item
+{
+    margin-right: 15px;
+    
+}
+.nav-item :hover
+{
+    background-color: #181818;   
+}
+
+#forms, #charts, #explore
+{
+    border:solid;
+    border-color: aliceblue;
+    border-width: 1px;
+}
+
+table
+{
+    text-align: right;
+    
+}
+

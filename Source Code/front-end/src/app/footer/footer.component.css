@@ -1,0 +1,19 @@
+footer
+{
+    background-color: #131313;
+}
+.developers
+{
+    display: flex;
+    float:right;
+}
+.icons
+{
+    margin-right: 20px;
+    opacity: 0.8;
+}
+
+a
+{
+    color : seagreen;
+}

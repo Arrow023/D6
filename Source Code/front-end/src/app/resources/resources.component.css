@@ -1,0 +1,50 @@
+::ng-deep body
+{
+    background-color: black;
+    background-blend-mode: lighten;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Sitka Text';
+    color:aliceblue;
+    overflow-y: scroll;
+    
+}
+
+nav
+{
+    background-color: black;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.nav-item
+{
+    margin-right: 15px;
+   
+}
+.nav-item :hover
+{
+    background-color: #181818;   
+}
+.card
+{
+    background-color: transparent;
+    /* border:solid; */
+}
+
+.card:hover
+{
+    box-shadow:  0 4px 8px 0 white, 0 6px 20px 0 white;
+}
+
+.card-img-top
+{
+    opacity: 0.1;
+}
+
+.card-title
+{
+    font-weight: bold;
+    text-shadow: 2px 2px 15px white;
+}

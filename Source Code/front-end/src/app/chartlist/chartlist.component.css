@@ -1,0 +1,42 @@
+::ng-deep body
+{
+    background-color: black;
+    background-blend-mode: lighten;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Sitka Text';
+    color:aliceblue;
+    overflow-y: scroll;
+    
+}
+
+nav
+{
+    background-color: black;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.nav-item
+{
+    margin-right: 15px;
+   
+}
+.nav-item :hover
+{
+    background-color: #181818;   
+}
+
+.chevron
+{
+    display:inline;
+    float:right;
+    margin-top: -5%;
+}
+
+::ng-deep .modal-backdrop 
+{
+    z-index: -1;
+    
+}

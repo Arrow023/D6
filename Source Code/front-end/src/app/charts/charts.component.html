@@ -1,0 +1,236 @@
+<nav class="navbar navbar-expand-lg navbar-dark " >
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="trainer">Train</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="resources">Resources</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Results</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<hr style='background-color:aliceblue; margin-top: 1px;'>
+<div class='container-fluid'>
+    <div class='row'>
+        <div class='summary mx-auto mb-2'>
+            <h4>Showing results for <b>{{this.selected_charts.slice(0, 22).replaceAll("-"," ").replaceAll("_","-")}}</b></h4>
+            <!-- <h5>Training Summary : </h5> -->
+            <!-- <h5> No. of Iterations : {{this.iterations}}</h5>
+            <h5> No. of Epochs : {{this.epochs}}</h5> -->
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-md-4' >
+            <div class='outline'>
+                <div class='border-primary' style='width: 25rem;'>
+                    <plotly-plot [data]="mse.data" [layout]="mse.layout" [config]="configuration" ></plotly-plot>
+                </div>
+            </div>
+        </div>
+        <div class='col-md-4'>
+            <div class='outline'>
+                <div class='border-primary' style='width: 25rem;'>
+                    <plotly-plot [data]="ssim.data" [layout]="ssim.layout" [config]="configuration" ></plotly-plot>
+                </div>
+            </div>
+        </div>
+        <div class='col-md-4'>
+            <div class='outline'>
+                <div class='border-primary' style='width: 25rem;'>
+                    <plotly-plot [data]="psnr.data" [layout]="psnr.layout" [config]="configuration" ></plotly-plot>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-md-4 offset-2'>
+            <div class='outline'>
+                <div class='border-primary' style='width: 25rem;'>
+                    <plotly-plot [data]="pcc.data" [layout]="pcc.layout" [config]="configuration" ></plotly-plot>
+                </div>
+            </div>
+        </div>
+        <div class='col-md-4'>
+            <div class='outline'>
+                <div class='border-primary' style='width: 25rem;'>
+                    <plotly-plot [data]="training.data" [layout]="training.layout" [config]="configuration" ></plotly-plot>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='row text-center'>
+        <div class='col-md-12 mx-auto'>
+            <a class="btn btn-outline-primary" data-toggle="collapse" href="#modelsummary" role="button" aria-expanded="false" aria-controls="modelsummary">Show Model Summary</a>
+            <div class="collapse multi-collapse" id="modelsummary">
+                <div class="card card-body" style="background: transparent;">
+<pre style="color:aliceblue; border:solid white;">
+
+    Model: "TDNN"
+    __________________________________________________________________________________________________
+    Layer (type)                    Output Shape         Param #     Connected to
+    ==================================================================================================
+    input_1 (InputLayer)            (None, 1, 28, 28)    0
+    __________________________________________________________________________________________________
+    Firstlayer (Conv2D)             (None, 1, 28, 1)     113         input_1[0][0]
+    __________________________________________________________________________________________________
+    Secondlayer (Conv2D)            (None, 1, 14, 64)    320         Firstlayer[0][0]
+    __________________________________________________________________________________________________
+    Thirdlayer (Conv2D)             (None, 1, 14, 64)    36928       Secondlayer[0][0]
+    __________________________________________________________________________________________________
+    Fourthlayer (Conv2D)            (None, 1, 14, 64)    36928       Thirdlayer[0][0]
+    __________________________________________________________________________________________________
+    flatten_1 (Flatten)             (None, 896)          0           Fourthlayer[0][0]
+    __________________________________________________________________________________________________
+    hiddenlayer (Dense)             (None, 128)          114816      flatten_1[0][0]
+    __________________________________________________________________________________________________
+    Z_1 (Dense)                     (None, 6)            774         hiddenlayer[0][0]
+    __________________________________________________________________________________________________
+    Z_2 (Dense)                     (None, 6)            774         hiddenlayer[0][0]
+    __________________________________________________________________________________________________
+    lambda_1 (Lambda)               (None, 6)            0           Z_1[0][0]
+                                                                     Z_2[0][0]
+    __________________________________________________________________________________________________
+    dense_1 (Dense)                 (None, 128)          896         lambda_1[0][0]
+    __________________________________________________________________________________________________
+    dense_2 (Dense)                 (None, 12544)        1618176     dense_1[0][0]
+    __________________________________________________________________________________________________
+    reshape_1 (Reshape)             (None, 14, 14, 64)   0           dense_2[0][0]
+    __________________________________________________________________________________________________
+    conv2d_transpose_1 (Conv2DTrans (None, 14, 14, 64)   36928       reshape_1[0][0]
+    __________________________________________________________________________________________________
+    conv2d_transpose_2 (Conv2DTrans (None, 14, 14, 64)   36928       conv2d_transpose_1[0][0]
+    __________________________________________________________________________________________________
+    conv2d_transpose_3 (Conv2DTrans (None, 29, 29, 64)   36928       conv2d_transpose_2[0][0]
+    __________________________________________________________________________________________________
+    conv2d_1 (Conv2D)               (None, 28, 28, 1)    257         conv2d_transpose_3[0][0]
+    ==================================================================================================
+    Total params: 1,920,766
+    Trainable params: 1,920,766
+    Non-trainable params: 0
+</pre>
+                </div>
+              </div>
+        </div>
+    </div>
+    <div class='row mt-3'>
+        <div class='col-md-12 text-center'>
+            <h5> No. of Iterations : {{this.iterations}} ---- No. of Epochs : {{this.epochs}}</h5>
+            <h4 class='text-center'>Original Dataset</h4>
+        </div>
+        <div class='col-md-5 ml-4 text-center'>
+            <h5>Dataset Images of Visual Stimuli - Training </h5>
+            <img [src]='xtrain' width='500px' height="500px">
+        </div>
+        <div class='col-md-5 offset-1 text-center'>
+            <h5>Dataset Images of Visual Stimuli - Testing </h5>
+            <img [src]='xtest' width='500px' height="500px">
+        </div>
+    </div>
+    <div class='row mt-5'>
+        <div class='col-md-12 text-center'>
+            <h4 class='text-center'>Reconstructed Images</h4>
+        </div>
+        <div class='col-md-5 ml-4 text-center'>
+            <h5>Reconstructed Images of Visual Stimuli - Training </h5>
+            <img [src]='x_reconstructed_train' width='500px' height="500px">
+        </div>
+        <div class='col-md-5 offset-1 text-center'>
+            <h5>Reconstructed Images of Visual Stimuli - Testing </h5>
+            <img [src]='x_reconstructed_test' width='500px' height="500px">
+        </div>
+    </div>
+    <div class='row mt-3 classifier mr-1 ml-1 mb-2'>
+        <div class='col-md-12 text-center'>
+            <h3>Classification Scheme Results</h3>
+            <p>This menu shows the results of various image classification algorithms that are run on the original dataset and the reconstructed image dataset.</p>
+        </div>
+        <div class='col-md-3 text-center ml-5 mb-3'>
+            <h5>Evaluation Metrics for Support Vector Machine - Binary Classifier</h5>
+            <table style="text-align: right;" class='mx-auto'>
+                <tr>
+                    <td>Accuracy :</td>
+                    <td> {{svm.Accuracy.toFixed(2)}}</td>
+                </tr>
+                <tr>
+                    <td>Precision - Label 6 :</td>
+                    <td> {{svm.Precision[0].toFixed(2)}}</td>
+                </tr>
+                <tr>
+                    <td>Precision - Label 9 :</td>
+                    <td> {{svm.Precision[1].toFixed(2)}}</td>
+                </tr>
+                <tr>
+                    <td>Recall score - Label 6 :</td>
+                    <td> {{svm.Recall[0].toFixed(2)}}</td>
+                </tr>
+                <tr>
+                    <td>Recall score - Label 9 :</td>
+                    <td>{{svm.Recall[1].toFixed(2)}}</td>
+                </tr>
+            </table>
+        </div>
+        <div class='col-md-3 text-center offset-1 mb-3'>
+            <h5>Evaluation Metrics for Random Forest - Decision Trees</h5>
+            <table style="text-align: right;" class='mx-auto'>
+                <tr>
+                    <td>Accuracy :</td>
+                    <td> {{random.Accuracy.toFixed(2)}}</td>
+                </tr>
+                <tr>
+                    <td>Precision - Label 6 :</td>
+                    <td> {{random.Precision[0].toFixed(2)}}</td>
+                </tr>
+                <tr>
+                    <td>Precision - Label 9 :</td>
+                    <td> {{random.Precision[1].toFixed(2)}}</td>
+                </tr>
+                <tr>
+                    <td>Recall score - Label 6 :</td>
+                    <td> {{random.Recall[0].toFixed(2)}}</td>
+                </tr>
+                <tr>
+                    <td>Recall score - Label 9 :</td>
+                    <td>{{random.Recall[1].toFixed(2)}}</td>
+                </tr>
+            </table>
+        </div>
+        <div class='col-md-3 text-center offset-1 mb-3'>
+            <h5>Evaluation Metrics for XGBoost Classifier - Gradient Boosting</h5>
+            <table style="text-align: right;" class='mx-auto'>
+                <tr>
+                    <td>Accuracy :</td>
+                    <td> {{xgboost.Accuracy.toFixed(2)}}</td>
+                </tr>
+                <tr>
+                    <td>Precision - Label 6 :</td>
+                    <td> {{xgboost.Precision[0].toFixed(2)}}</td>
+                </tr>
+                <tr>
+                    <td>Precision - Label 9 :</td>
+                    <td> {{xgboost.Precision[1].toFixed(2)}}</td>
+                </tr>
+                <tr>
+                    <td>Recall score - Label 6 :</td>
+                    <td> {{xgboost.Recall[0].toFixed(2)}}</td>
+                </tr>
+                <tr>
+                    <td>Recall score - Label 9 :</td>
+                    <td>{{xgboost.Recall[1].toFixed(2)}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

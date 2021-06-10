@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg navbar-dark " >
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="trainer">Train</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="resources">Resources</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Results</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<hr style='background-color:aliceblue; margin-top: 1px;'>
+<div class='container'>
+    <h3 class='text-center'>Previously Trained Summary Results</h3>
+    <div class="card border-primary mb-3" *ngFor='let i of list'>
+        <div class="card-body text-primary">
+            <div class='col-md-10'>
+                <h5 class="card-title">{{i.slice(0, 22).replaceAll("-"," ").replaceAll("_","-")}}</h5>
+                <p class="card-text">Click on the button to explore the overall summary of this training.</p>
+            </div>
+            <div class='col-md'>
+                <a class='card-text chevron' (click)='viewCharts(i)'><i class='fa fa-4x fa-chevron-circle-right'></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
