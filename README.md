@@ -1,6 +1,11 @@
 # Reconstructing Perceived Images from Human Brain Activities using TWIN DEEP NEURAL NETWORK
  What if I tell you that I could show you what you are thinking ? This is a hope for the future. We have developed a nueral network that does it (kindof). 
  
+## Demo Clip
+[![image](https://user-images.githubusercontent.com/42842987/128367767-e1302896-0ff1-4cc0-b768-87f919595e49.png)](https://drive.google.com/file/d/1IDh_I5RpZyQL1jbdz--gTbKzn0xIyFEF/view?usp=sharing)
+
+
+ 
  ## Abstract [![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/D6/LICENSE)
 Understanding the Human Visual System necessitates the use of neural decoding. The human visual system is capable of extracting and comparing features from any object. The majority of the articles are concerned with either the classification of brain function patterns or the recognition of visual stimuli. We implement the Twin Deep Neural Network model for accurate image reconstruction in this project. We present the Twin Deep Neural Network model for accurate image reconstruction from human brain activity using functional Magnetic Resonance Imaging in this research (fMRI). For better visual reconstruction and to make full use of each dataset, the TDNN method may be used to compare the relationship between a sample pair of similar features. The TDNN approach reduces the constraints imposed by high dimensionality and a limited amount of FMRI data. Essentially, this method will increase the training data from N samples to 2N sample pairs, allowing the limited number of training samples to be fully utilised. On an open dataset of handwritten digital images and character datasets, we found that the proposed TDNN approach outperformed all current state-of-the-art methods on the Convolutional Neural Network by about 10%. (CNN).
 
